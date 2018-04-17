@@ -1,28 +1,38 @@
-.image {
-	width: 100%;
-    padding-bottom: 1em;
-}
-
-.view-screen {
+.tutorial-screen {
+    background: black;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.download-button {
+.tutorial-image {
+    width: 80%;
+}
+
+/* Big Button adapted from Phillip's sticky note code */
+
+.bigbutton {
+
     padding: 0.5em 2.5em;
     text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 1em;
     border-radius: 1em;
-	background-color: white;
+    background-color: white;
     color: black;
     margin-bottom: 5em;
     border-radius: 50px;
 }
 
-.download-button:hover {
+.bigbutton:hover {
     background-color: #84E1D1;
     color: white;
+}
+
+
+.logo {
+    width: 75px;
+    min-width: 10%;
+    padding-top: 2em;
 }

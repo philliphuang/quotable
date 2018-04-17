@@ -1,67 +1,65 @@
+/*
+ * QUOTEMODAL.JS
+ *
+ * Renders quote overlay of home screen
+ */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { changeScreen } from '../actions'
+import MoodPickerButton from '../components/MoodPickerButton';
 import '../css/QuoteModal.css';
 import clock from '../img/clock.png';
-import photo_img from '../img/photos.png';
 import arrow_up from '../img/arrow-up.png';
-import grid from '../img/grid.png';
 
 class QuoteModal extends Component {
     constructor(props) {
         super(props);
-        this.handleScreenClick = this.handleScreenClick.bind(this);
-        this.handleCameraClick = this.handleCameraClick.bind(this);
-    }
-
-    handleScreenClick(ev) {
-        this.props.dispatch(changeScreen(ev.target.name));
-    }
-
-    handleCameraClick() {
-        this.props.handleClick();
     }
 
     render() {
         return (
-            <div className="quote-modal">
-                <div className="quote-text">
-                    Negative thoughts stick around because we believe them, not because we want or choose them.
+            <div>
+                <div className="quote-modal">
+                    <div className="quote-text">
+                        Negative thoughts stick around because we believe them, not because we want or choose them.
+                    </div>
+                    {
+                        !this.props.curPic &&
+                        <div className="time">
+                            <img className="time-img" src={clock} alt="time left" />
+                            <div className="time-text">
+                                5 hours left!
+                            </div>
+                        </div>
+                    }
+
+                    {   
+                        // Hide camera activation when photo already submitted
+                        this.props.curPic
+                        ?   <div className="camera-sign">
+                                <small>You already submitted a photo for today.</small>
+                            </div>
+                        :   <div className="camera-sign">
+                                <small>Swipe up to take a photo!</small>
+                                <div className="footer-ctr">
+                                    <img
+                                        className="footer-img-arrow"
+                                        src={arrow_up}
+                                        alt="camera"/>
+                                </div>
+                            </div>
+                    }
                 </div>
-                <div className="time">
-                    <img className="time-img" src={clock} alt="time left" />
-                    <div className="time-text">
-                        5 hours left!
-                    </div>
-                </div>
-                <div className="footer">
-                    <div className="footer-ctr">
-                        <img
-                            name='profile'
-                            className="footer-img-photo"
-                            src={photo_img}
-                            alt="your profile"
-                            onClick={this.handleScreenClick} />
-                    </div>
-                    <div className="footer-ctr">
-                        <img
-                            className="footer-img-arrow"
-                            src={arrow_up}
-                            alt="camera"
-                            onClick={this.handleCameraClick} />
-                    </div>
-                    <div className="footer-ctr">
-                        <img 
-                            name='explore'
-                            className="footer-img-grid"
-                            src={grid}
-                            alt="explore"
-                            onClick={this.handleScreenClick} />
-                    </div>
-                </div>
+                <MoodPickerButton />
             </div>
         );
     }
 }
 
-export default connect()(QuoteModal);
+const mapStateToProps = (state) => {
+    return {
+        curPic: state.curPic
+    };
+}
+
+export default connect(mapStateToProps)(QuoteModal);

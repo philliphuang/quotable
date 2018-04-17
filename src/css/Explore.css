@@ -1,0 +1,17 @@
+.explore-header {
+	position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+	border: none;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.7);
+	min-width: 50%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	text-align: center;
+	font-size: 1em;
+	margin: 0;
+}

@@ -1,0 +1,17 @@
+.emoji-history {
+    color: black;
+    margin: 3.5em;
+}
+
+.visual {
+    width: 80%;
+    max-width: 800px;
+    padding-top: 5em;
+}
+
+.visual-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

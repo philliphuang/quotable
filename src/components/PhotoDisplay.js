@@ -35,9 +35,9 @@ class PhotoDisplay extends Component {
         return (
             <div>
                 {!this.state.image
-                    ? <div id = "photos">
+                    ? <div id="photos">
                         {this.props.photos.map(p => {
-                            return (<div key={i++}>
+                            return (<div className="photo-display" key={i++}>
                                 <img src={p.img} alt={p.text} onClick={() => this.handleClick(p.img, p.text)}/>
                             </div>);
                         })}

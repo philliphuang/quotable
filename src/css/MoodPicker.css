@@ -1,3 +1,21 @@
+.mood-picker {
+	position: fixed;
+}
+
 .mood-btn {
     font-size: 2em;
+    background-color: Transparent;
+    border: none;
+    outline:none;
+}
+
+.mood-expanded {
+	position: fixed;
+	display: flex;
+	background-color: #84E1D1;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	height: 100%;
+	width: 100%;
 }

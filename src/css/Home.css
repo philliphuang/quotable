@@ -1,41 +1,81 @@
 .image-view {
-    position: absolute;
+    position: fixed;
     z-index: -1;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .image-view > img {
     width: 100%;
-    height: 98%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.return-btn {
-    position: fixed;
-    left: 48%;
-    border: none;
-    background-color: transparent;
-    width: 4%;
+@media only screen and (max-width: 600px) {
+    .image-view {
+        object-fit: cover;
+    }
+
+    .image-view > img {
+        object-fit: cover;
+    }
 }
 
-.return-btn-img {
-    width: 100%;
-    min-width: 20px;
+.shadow-inverse {
+    filter: invert(1) drop-shadow(0px 0px 2px black);
+    -webkit-filter: invert(1) drop-shadow(0px 0px 2px black);
+}
+
+.shadow-inverse-blur {
+    filter: invert(1) drop-shadow(0px 0px 2px black) blur(2px);
+    -webkit-filter: invert(1) drop-shadow(0px 0px 2px black) blur(2px);
+}
+
+.big-blur {
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+}
+
+.text-blur {
+    color: transparent;
+    text-shadow: 0 0 4px white;
+}
+
+.return-sign {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    color: white;
+    text-shadow: 1px 1px black;
+    padding: 1em;
+}
+
+.return-sign-img {
+    width: 2em;
+}
+
+.fill-height-to-navbar {
+    height: calc(100% - 2.3em); /* make room for navbar */
 }
 
 .home-btns {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    position: relative;
+    height: 100%;
 }
 
 .camera-btn {
-    width: 5%;
+    width: 2.5em;
+    padding: 0.7em;
     position: absolute;
     bottom: 0;
-    padding: 1%;
 }
 
 .photo-screen {
@@ -43,9 +83,10 @@
 }
 
 .photo-header {
-    position: absolute;
-    top: 2%;
-    width: 98%;
+    position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.7em 0.5em;
     display: flex;
     justify-content: space-between;
 }
@@ -53,8 +94,16 @@
 .photo-header > button {
     border: none;
     background-color: transparent;
-    width: 3%;
-    font-size: 20px;
+    width: 1.2em;
+    font-size: 1.2em;
+}
+
+.photo-header > button > img {
+    width: 1em;
+}
+
+.arrow-btn:focus {
+    outline:0;
 }
 
 .arrow-btn-img {
@@ -67,4 +116,58 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.modal-confirm {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    z-index: 1;
+}
+
+.modal-confirm-content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border-radius: 5px;
+    width: 12em;
+    background-color: #eeeeee;
+}
+
+.modal-confirm-content > h6 {
+    width: 100%;
+    margin: 1em 1em 0.5em 1em;
+    text-align: center;
+    color: black;
+    font-size: 1em;
+}
+
+.modal-confirm-content > p {
+    width: 100%;
+    margin: 0.6em;
+    text-align: center;
+    font-size: 0.8em;
+    color: black;
+}
+
+.modal-confirm-btns {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 0.5em;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.modal-confirm-btns > button {
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    background-color: #cccccc;
+    flex: 1;
+    font-size: 0.8em;
+    padding: 0.3em;
 }
